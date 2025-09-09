@@ -670,10 +670,10 @@
 /* - max-width: 479 */
 @media (max-width: 479px) {
 
-	.ow-navigation .navbar-brand img,
+	/* .ow-navigation .navbar-brand img,
 	.navbar-fixed-top .ow-navigation .navbar-brand img {
-		/* display: none; */
-	}
+		display: none;
+	} */
 
 	.ow-navigation .navbar-brand h3 {
 		font-size: 16px;
