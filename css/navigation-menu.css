@@ -672,7 +672,7 @@
 
 	.ow-navigation .navbar-brand img,
 	.navbar-fixed-top .ow-navigation .navbar-brand img {
-		display: none;
+		/* display: none; */
 	}
 
 	.ow-navigation .navbar-brand h3 {
