@@ -41,7 +41,7 @@
 	
 
 	<!-- Header -->
-	<header class="header-main container-fluid no-padding">	
+	<header class="header-main container-fluid no-padding sticky">	
 		<!-- Navigation -->
 		<div class="menu-block container-fluid no-padding">
 			<!-- Container -->
@@ -57,15 +57,7 @@
 						<a class="navbar-brand" href="index.html" title="Logo"><h3><img src="images/logo.png" alt="logo"/></h3></a>
 					</div>
 					<div class="add-to-cart">
-						<div class="menu-search">
-							<!-- <div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search" />
-									<button class="sb-search-submit"><i class="fa fa-search"></i></button>
-									<span class="sb-icon-search"></span>
-								</form>
-							</div> -->
-						</div>
+						
 						<ul class="cart hidden-md">
 							<li>
 								<a aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" id="cart" class="btn dropdown-toggle" title="Order Online" href="#">Order Online</a>
@@ -75,37 +67,18 @@
 					<div id="navbar" class="navbar-collapse collapse navbar-right">
 						<ul class="nav navbar-nav">
 							<li class="dropdown active">
-								<a href="index.html" title="Portfolio" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
+								<a href="#" title="Portfolio" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+								<!-- <i class="ddl-switch fa fa-angle-down"></i>
 								<ul class="dropdown-menu">	
 									<li><a href="index-2.html" title="Portfolio grid">Home 1</a></li>
-								</ul>
+								</ul> -->
 							</li>
-							<li class="dropdown">
-								<a href="#" title="Pages" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
-								<ul class="dropdown-menu">	
-									<li><a href="about.html" title="About">About us</a></li>
-									<li><a href="services.html" title="Services">Services</a></li>
-									<li><a href="gallery-2.html" title="Gallery">Gallery</a></li>
-								</ul>
-							</li>
-							<li><a href="#menu-section" title="Features">Features</a></li>
-							<li><a href="gallery-2.html" title="Portfolio">Portfolio</a></li>
-							<li class="dropdown">
-								<a href="blog.html" title="Latest News" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
-								<ul class="dropdown-menu">	
-									<li><a href="blog-post.html" title="Blog Post">Blog Post</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="contact-1.html" title="Latest News" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
-								<ul class="dropdown-menu">	
-									<li><a href="contact-2.html" title="Contact 2">Contact 2</a></li>
-								</ul>
-							</li>
+							
+							<li><a href="#about" title="Features">Our Story</a></li>
+							<li><a href="#menu-section" title="Features">Menu</a></li>
+							<li><a href="#contact" title="Portfolio">Contact</a></li>
+							<li><a href="#news" title="Portfolio">News</a></li>
+							
 						</ul>					
 					</div>
 				</nav><!-- Navigation -->
@@ -122,7 +95,7 @@
 					<div class="item active">
 						<img width="1920" height="1030" alt="slider" src="images/slider-1.jpg">
 						<div class="carousel-caption">
-							<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">
+							<img data-animation="animated pulse" src="images/maya.png" alt="slider-ic" width="121" height="124">
 							<p data-animation="animated bounceInLeft">Cake for Later Cake </p>
 							<p data-animation="animated bounceInRight">as a way of Life</p>
 							<a title="Read More" href="#" data-animation="animated bounceInUp">Read More</a>
@@ -132,22 +105,13 @@
 					<div class="item">
 						<img width="1920" height="1030" alt="slider" src="images/slider-1.jpg">
 						<div class="carousel-caption">
-							<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">
+							<img data-animation="animated pulse" src="images/maya.png" alt="slider-ic" width="121" height="124">
 							<p data-animation="animated bounceInLeft">Cake for Later Cake </p>
 							<p data-animation="animated bounceInRight">as a way of Life</p>
 							<a title="Read More" href="#" data-animation="animated bounceInUp">Read More</a>
 						</div>
 					</div>
 					
-					<div class="item">
-						<img width="1920" height="1030" alt="slider" src="images/slider-1.jpg">
-						<div class="carousel-caption">
-							<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">
-							<p data-animation="animated bounceInLeft">Cake for Later Cake </p>
-							<p data-animation="animated bounceInRight">as a way of Life</p>
-							<a title="Read More" href="#" data-animation="animated bounceInUp">Read More</a>
-						</div>
-					</div>
 					<a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
 						<i class="fa fa-caret-left" aria-hidden="true"></i>
 					</a>
@@ -159,12 +123,13 @@
 		</div><!-- Photo Slider /- -->
 		
 		<!-- Welcome Section -->
-		<div class="welcome-section container-fluid no-padding">
+		<div id="about" class="welcome-section container-fluid no-padding">
 			<div class="section-padding"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6">
-						<img src="images/welcome.png" alt="welcome" width="457" height="700" />
+						<!-- <img src="images/welcome.png" alt="welcome" width="457" height="700" /> -->
+						<img src="images/story.png" alt="Our Story" width="457" height="700" />
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 wc-content-box">
 						<div class="welcome-header">
@@ -175,8 +140,12 @@
 								<h3>About Us</h3>
 								<h5>Our story</h5>
 								<img src="images/section-seprator-1.png" alt="section-seprator" width="70" height="3">
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day Got a dream and we just know now we are gonna make our dream come true so get a witch is shawl on a broomstick you can crawl on were gonna pay.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
+								<p>Maya Artisan Bakery takes its name from the Turkish word “maya”, meaning “yeast.”
+For us, maya is more than what makes dough rise. It is a symbol of patience, tradition, and human connection. Throughout history, the sharing of bread has marked the beginning of community and civilization.</p>
+								<p>In our bakery, we honor this legacy. Every loaf is crafted with care, by hand, and with respect for time. Our sourdough culture comes from a living starter that has been nurtured for years. Using only flour, water, salt, and time the purest gifts of nature. We create breads that are honest, wholesome, and full of character. Each loaf undergoes a patient 18 hour fermentation before it leaves our oven.</p>
+								<p>At Maya Artisan Bakery, we don’t just bake bread. We carry forward a story as old as humanity itself. <br>
+Every loaf reflects a mastery that stays rooted in tradition while looking toward the future.</p>
+								<!-- <a href="#" title="Read More" class="read-more">Read More</a> -->
 							</div><!-- Section Header /-  -->
 						</div>
 					</div>
@@ -184,65 +153,39 @@
 			</div><!-- Container /- -->
 		</div><!-- Welcome Section /- -->
 		
-		<!-- Festival Section -->
-		<div class="festival-section container-fluid no-padding">
-			<div class="section-padding"></div>
+		<!-- Counter Section -->
+		<div class="counter-section container-fluid no-padding">
 			<div class="container">
-				<div class="festival-details-tab">
-					<!-- Tab panes -->
-					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="partycakes">
-							<div class="festival-content">
-								<h5>Cake Festival</h5>
-								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day got a dream true.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="softcakes">
-							<div class="festival-content">
-								<h5>softcakes</h5>
-								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day got a dream true.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="cupcakes">
-							<div class="festival-content">
-								<h5>cupcakes</h5>
-								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day got a dream true.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="berrycakes">
-							<div class="festival-content">
-								<h5>berrycakes</h5>
-								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day got a dream true.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="nutcake">
-							<div class="festival-content">
-								<h5>nutcake</h5>
-								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day got a dream true.</p>
-								<a href="#" title="Read More" class="read-more">Read More</a>
-							</div>
-						</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="counter-box">
+						<h3><span class="count" id="statistics_count-1" data-statistics_percent="1500"> &nbsp;</span></h3>
+						<i class="fa fa-smile-o" aria-hidden="true"></i>
+						<p>HAPPY CLIENTS</p>
 					</div>
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#partycakes" aria-controls="partycakes " role="tab" data-toggle="tab"><i><img src="images/festival-ic-1.png" alt="festival-ic-1" width="37" height="42" /></i>partycakes</a></li>
-						<li role="presentation"><a href="#softcakes" aria-controls="softcakes" role="tab" data-toggle="tab"><i><img src="images/festival-ic-2.png" alt="festival-ic-2" width="37" height="42" /></i>softcakes</a></li>
-						<li role="presentation"><a href="#cupcakes" aria-controls="cupcakes" role="tab" data-toggle="tab"><i><img src="images/festival-ic-3.png" alt="festival-ic-3" width="37" height="42" /></i>cupcakes</a></li>
-						<li role="presentation"><a href="#berrycakes" aria-controls="berrycakes" role="tab" data-toggle="tab"><i><img src="images/festival-ic-4.png" alt="festival-ic-4" width="37" height="42" /></i>berrycakes</a></li>
-						<li role="presentation"><a href="#nutcake" aria-controls="nutcake" role="tab" data-toggle="tab"><i><img src="images/festival-ic-5.png" alt="festival-ic-5" width="37" height="42" /></i>nutcake</a></li>
-					</ul>
 				</div>
-			</div><!-- Container /- -->
-		</div><!-- Festival Section /- -->
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="counter-box">
+						<h3><span class="count" id="statistics_count-2" data-statistics_percent="550">&nbsp;</span></h3>
+						<i class="fa fa-coffee" aria-hidden="true"></i>
+						<p>COFFEE CUPS</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="counter-box">
+						<h3><span class="count" id="statistics_count-3" data-statistics_percent="750">&nbsp;</span></h3>
+						<i class="fa fa-hourglass-o" aria-hidden="true"></i>
+						<p>WORKED HOURS</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="counter-box">
+						<h3><span class="count" id="statistics_count-4" data-statistics_percent="110">&nbsp;</span></h3>
+						<i class="fa fa-home" aria-hidden="true"></i>
+						<p>BRANCHES</p>
+					</div>
+				</div>
+			</div>
+		</div><!-- Counter Section /- -->
 		
 		<!-- Menu Section -->
 		<div id="menu-section" class="menu-section container-fluid no-padding">
@@ -314,182 +257,64 @@
 		</div>
 		<div class="section-padding"></div>
 		
-		<!-- Team Section -->
-		<div class="team-section container-fluid no-padding">
+		<!-- Order Section 1 -->
+		<div id="contact" class="order-section order-section-1 container-fluid no-padding">
 			<div class="section-padding"></div>
 			<div class="container">
-				<div class="row">
-					<!-- Main Carousel -->
-					<div id="main-carousel1" class="carousel slide carousel-fade" data-ride="carousel">
-						<div role="listbox" class="carousel-inner">
-							<div class="item active">
-								<div class="team-content">
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<img src="images/team.png" alt="team" width="468" height="595" />
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<div class="section-header left-header">
-											<h3>Meet Our Team</h3>
-											<h5>CHEFS</h5>
-											<img src="images/section-seprator-1.png" alt="section-seprator" width="70" height="3">
-											<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day Got a dream and we just know now we are gonna make our dream come true so get a witch is shawl on a broomstick you can crawl on were gonna pay.</p>
-										</div><!-- Section Header /-  -->
-										<div class="team-contact-info">
-											<h5>Stefhen Richards</h5>
-											<ul>
-												<li><a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											</ul>
-											<p><a href="mailto:info@domain.com" title="info@domain.com"><i class="fa fa-envelope" aria-hidden="true"></i>info@domain.com</a></p>
-											<p><a href="tel:1-800-23-456-7890" title="1-800-23-456-7890"><i class="fa fa-phone" aria-hidden="true"></i>Phone: 1-800-23-456-7890</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="item">
-								<div class="team-content">
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<img src="images/team.png" alt="team" width="468" height="595" />
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<div class="section-header left-header">
-											<h3>Meet Our Team</h3>
-											<h5>CHEFS</h5>
-											<img src="images/section-seprator-1.png" alt="section-seprator" width="70" height="3">
-											<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day Got a dream and we just know now we are gonna make our dream come true so get a witch is shawl on a broomstick you can crawl on were gonna pay.</p>
-										</div><!-- Section Header /-  -->
-										<div class="team-contact-info">
-											<h5>Stefhen Richards</h5>
-											<ul>
-												<li><a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-												<li><a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											</ul>
-											<p><a href="mailto:info@domain.com" title="info@domain.com"><i class="fa fa-envelope" aria-hidden="true"></i>info@domain.com</a></p>
-											<p><a href="tel:1-800-23-456-7890" title="1-800-23-456-7890"><i class="fa fa-phone" aria-hidden="true"></i>Phone: 1-800-23-456-7890</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<a class="left carousel-control" href="#main-carousel1" role="button" data-slide="prev">
-							<i class="fa fa-caret-right" aria-hidden="true"></i>
-						</a>
-						<a class="right carousel-control" href="#main-carousel1" role="button" data-slide="next">
-							<i class="fa fa-caret-left" aria-hidden="true"></i>
-						</a>
-					</div><!-- Main Carousel /-  -->
-				</div>
+				<div class="section-header">
+					<h3>Choose your Flavour</h3>
+					<h5>Order Online</h5>
+					<img src="images/section-seprator.png" alt="section-seprator" width="169" height="15">
+					<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day.</p>
+				</div><!-- Section Header /-  -->
+				
+				<form>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<input type="text" class="form-control" placeholder="Your Name" required />
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<input type="text" class="form-control" placeholder="Subject" />
+					</div>
+					<div class="form-group col-md-4 col-sm-4 col-xs-4">
+						<input type="text" class="form-control" placeholder="Your Phone Number" />
+
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 order-links">
+						<a href="#" title="Order Now" class="order-now">Submit Your Message</a>
+						<!-- <a href="#" title="Free Delivery" class="free-delivery">Free Delivery</a> -->
+					</div>
+					<div class="working-hours">
+						<p><span>working hours:</span> monday to friday : 8.30AM - 10.30PM</p>
+						<p>saturday : 9.00AM - 10.30PM</p>
+						<p>sunday : <span>closed</span></p>
+					</div>
+				</form>
 			</div><!-- Container /- -->
-		</div><!-- Team Section /- -->
-		
-		<!-- Order Section -->
-		<div class="order-section container-fluid no-padding">
 			<div class="section-padding"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-7 col-sm-7 col-xs-7">
-						<div class="section-header">
-							<h3>Choose your Flavour</h3>
-							<h5>Order Online</h5>
-							<img src="images/section-seprator.png" alt="section-seprator" width="169" height="15">
-							<p>The day for a three hour tour a three hour tour then one day he was shooting at some food and up through the ground came a oil that is its a beautiful day.</p>
-						</div><!-- Section Header /-  -->
-						<form class="online-form">
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<input type="text" class="form-control" placeholder="Name *" required />
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<input type="text" class="form-control" placeholder="Phone Number *" required />
-							</div>
-							<div class="form-group col-md-6 col-sm-6 col-xs-6">
-								<select>
-									<option>FLAVOURS</option>
-									<option>FLAVOURS</option>
-									<option>FLAVOURS</option>
-									<option>FLAVOURS</option>
-								</select>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<input type="text" class="form-control" placeholder="Your Address *" required />
-							</div>
-							<a href="#" title="Order Now" class="order-now">Order Now</a>
-							<p>FOR MORE QUERIES CALL US AT :<a href="tel:1-800-23-456-7890" title="1-800-23-456-7890"> 1-800-23-456-7890</a></p>
-						</form>
-					</div>
-				</div>
-			</div><!-- Container /- -->
-			
-			<div class="right-image">
-				<img src="images/order-online.png" alt="order-online" width="600" height="830" />
-			</div>
-			<div class="section-padding"></div>
-		</div><!-- Order Section /- -->
+		</div><!-- Order Section 1 /- -->
 		
-		<!-- Counter Section -->
-		<div class="counter-section container-fluid no-padding">
-			<div class="container">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="counter-box">
-						<h3><span class="count" id="statistics_count-1" data-statistics_percent="1500"> &nbsp;</span></h3>
-						<i class="fa fa-smile-o" aria-hidden="true"></i>
-						<p>HAPPY CLIENTS</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="counter-box">
-						<h3><span class="count" id="statistics_count-2" data-statistics_percent="550">&nbsp;</span></h3>
-						<i class="fa fa-coffee" aria-hidden="true"></i>
-						<p>COFFEE CUPS</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="counter-box">
-						<h3><span class="count" id="statistics_count-3" data-statistics_percent="750">&nbsp;</span></h3>
-						<i class="fa fa-hourglass-o" aria-hidden="true"></i>
-						<p>WORKED HOURS</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="counter-box">
-						<h3><span class="count" id="statistics_count-4" data-statistics_percent="110">&nbsp;</span></h3>
-						<i class="fa fa-home" aria-hidden="true"></i>
-						<p>BRANCHES</p>
-					</div>
-				</div>
-			</div>
-		</div><!-- Counter Section /- -->
+		
 		
 		<!-- Latest Blog Section -->
-		<div id="latest-blog" class="latest-blog container-fluid no-left-padding no-right-padding">
-		<div class="container">
-			<div class="section-header">
-			<h3>Follow us on Instagram</h3>
-			<h5 style="margin-bottom: 30px;">Recent from Us</h5>
-			<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/c5b53b0a5e59508ba5bdc048d29f4978.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+		 <div id="news">
+			<div class="latest-blog container-fluid no-left-padding no-right-padding">
+				<div class="container">
+					<div class="section-header">
+					<h3>Follow us on Instagram</h3>
+					<h5 style="margin-bottom: 30px;">Recent from Us</h5>
+					<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/c5b53b0a5e59508ba5bdc048d29f4978.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+				</div>
+		 	</div>
 		</div>
-		</div>
+		
 		<!-- Latest Blog Section /- -->
 
 		
 			
-		<!-- Newsletter Box -->
-		<div class="subscribe-section container-fluid" id="subscribe-section">
-			<!-- Container -->
-			<div class="container">				
-				<h4 class="subscribe-title col-md-5 col-sm-4 col-xs-12">subscribe to our newsletter</h4>
-				<form class="col-md-7 col-sm-8 col-xs-12">
-					<div class="col-md-9 col-sm-8 col-xs-8"><input type="text" placeholder="Your Email Here" name="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-					<div class="col-md-3 col-sm-4 col-xs-4 no-left-padding"><input type="submit" value="subscribe" class="btn-default" name="subscribe"></div>
-				</form>
-			</div><!-- Container /- -->
-		</div><!-- Newsletter Box /- -->
+		
 	</main>
 	
 	<footer class="footer-main container-fluid no-padding">		
