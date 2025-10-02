@@ -430,40 +430,80 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 	<script src="js/functions.js"></script>
 
 	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSMOs0XKq6d6s7iPnvrShl-A53yK024-yqM0reiRz8zdQtvK-EqjearA_hhJulHx7MSf9fqvfWSAlTo/pub?output=csv')
-			.then(response => response.text())
-			.then(csv => {
-				const rows = csv.split('\n').map(row => row.split(','));
-				const headers = rows[0];
-				const data = rows.slice(1).map(row => {
-					let obj = {};
-					headers.forEach((header, i) => {
-						obj[header.trim()] = row[i] ? row[i].trim() : '';
-					});
-					return obj;
-				});
-				var menuRow = document.getElementById('menu-items-row');
-				menuRow.innerHTML = '';
-				data.forEach(function(item) {
-					if (!item.name) return; // skip empty rows
-					var col = document.createElement('div');
-					col.className = 'col-md-6 col-sm-6 col-xs-6';
-					// Remove quotes from image URL if present
-					var cleanImage = item.image.replace(/^"(.*)"$/, '$1').trim();
-					col.innerHTML = `
-						<div class="menu-box">
-							<img src="${cleanImage}" alt="${item.name}" />
-							<h3>${item.name} <span>$${item.price}</span></h3>
-							<p>${item.description}</p>
-							<a href="#" title="Order Now">Order Now</a>
-						</div>
-					`;
-					menuRow.appendChild(col);
-				});
-			});
-	});
-	</script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Use TSV to avoid comma issues in descriptions
+  const TSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSMOs0XKq6d6s7iPnvrShl-A53yK024-yqM0reiRz8zdQtvK-EqjearA_hhJulHx7MSf9fqvfWSAlTo/pub?output=tsv';
+
+  // Convert whatever is in image_url (ID, full URL, or id=...) to a hotlinkable Drive URL
+  function toDriveImageUrl(val, { useThumb=false, width=1200 } = {}) {
+    if (!val) return '';
+
+    const s = String(val).trim().replace(/^"(.*)"$/, '$1'); // strip wrapping quotes if any
+
+    // Try to extract the file ID from common patterns
+    // - .../file/d/<ID>/view
+    // - ...id=<ID>
+    // - just <ID>
+    let idMatch = s.match(/(?:\/d\/|[?&]id=)([^\/&?#]+)/);
+    let id = idMatch ? idMatch[1] : s;
+
+    // If id still contains URL characters, it's not a plain ID—last resort attempt
+    if (/https?:\/\//i.test(id)) {
+      const m2 = id.match(/(?:\/d\/|[?&]id=)([^\/&?#]+)/);
+      id = m2 ? m2[1] : '';
+    }
+
+    if (!id) return '';
+
+    // Choose endpoint: thumbnail is very reliable for embedding
+    return useThumb
+      ? `https://drive.google.com/thumbnail?id=${id}&sz=w${width}`
+      : `https://drive.google.com/uc?export=view&id=${id}`;
+  }
+
+  fetch(TSV_URL)
+    .then(r => r.text())
+    .then(tsv => {
+      const lines = tsv.trim().split('\n');
+      const headers = lines[0].split('\t').map(h => h.trim().toLowerCase());
+      const rows = lines.slice(1).map(line => line.split('\t'));
+
+      // Build array of objects using headers
+      const data = rows.map(cols => {
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = (cols[i] || '').trim());
+        return obj;
+      });
+
+      const menuRow = document.getElementById('menu-items-row');
+      if (!menuRow) return;
+      menuRow.innerHTML = '';
+
+      data.forEach(item => {
+        // Expect your sheet headers: name | price | description | image_url
+        const name = item.name || '';
+        if (!name) return;
+
+        // Prefer image_url column; fall back to image if you still have that name
+        const rawImg = item.image_url || item.image || '';
+        const imgSrc = toDriveImageUrl(rawImg, { useThumb: true, width: 1200 });
+
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-sm-6 col-xs-6';
+        col.innerHTML = `
+          <div class="menu-box">
+            ${imgSrc ? `<img src="${imgSrc}" alt="${name}" onerror="console.warn('Image failed:', this.src)" />` : ''}
+            <h3>${name} <span>$${(item.price || '').replace(/[^0-9.,]/g,'')}</span></h3>
+            <p>${item.description || ''}</p>
+            <a href="#" title="Order Now">Order Now</a>
+          </div>
+        `;
+        menuRow.appendChild(col);
+      });
+    })
+    .catch(err => console.error('Fetch/parse error:', err));
+});
+</script>
 
 </body>
 </html>
