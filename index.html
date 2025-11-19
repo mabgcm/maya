@@ -431,18 +431,18 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 	<script>
 		window.ENV = window.ENV || {};
 		(function () {
-			var host = window.location.hostname;
+			var host = window.location.hostname || '';
 			var isLocal =
 				host === 'localhost' ||
 				host === '127.0.0.1' ||
 				host === '0.0.0.0' ||
 				host.endsWith('.local');
 			var localEndpoint = 'http://localhost:4000/api/contact';
-			var defaultEndpoint = '/api/contact';
+			var productionEndpoint = 'https://mayabakery.ca/api/contact';
 
 			window.ENV.CONTACT_ENDPOINT =
 				window.ENV.CONTACT_ENDPOINT ||
-				(isLocal ? localEndpoint : defaultEndpoint);
+				(isLocal ? localEndpoint : productionEndpoint);
 		})();
 	</script>
 	<script src="js/contact.js"></script>
