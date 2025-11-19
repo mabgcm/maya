@@ -290,7 +290,7 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 			</div>
 				<!-- Section Header /-  -->
 				
-				<form id="contact-form" action="#" method="post" novalidate>
+				<form id="contact-form" method="post" novalidate>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<label for="name" class="sr-only">Your Name</label>
 						<input id="name" name="name" type="text" class="form-control" placeholder="Your Name *" required>
@@ -319,7 +319,7 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 						<input type="text" name="company" tabindex="-1" autocomplete="off">
 					</div>
 					<div class="col-md-12 col-sm-12 col-xs-12 order-links">
-						<a href="https://www.doordash.com/en-CA/store/maya-artisan-bakery---565-bryne-dr-unit-b2-barrie-37217804/?srsltid=AfmBOorKqGQAnBw1snZG0nJDhpApf8Mu50SyIzLFhN7b8oCH_5zwbJXs" title="Order Now" class="order-now">Submit Your Message</a>
+						<button type="submit" class="order-now">Submit Your Message</button>
 					</div>
 					<!-- Contact Details / Hours -->
       <div class="working-hours">
@@ -428,6 +428,12 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 	
 	<!-- Library - Theme JS -->
 	<script src="js/functions.js"></script>
+	<script>
+		window.ENV = window.ENV || {};
+		window.ENV.CONTACT_ENDPOINT =
+			window.ENV.CONTACT_ENDPOINT || 'http://localhost:4000/api/contact';
+	</script>
+	<script src="js/contact.js"></script>
 
 	<script>
 document.addEventListener('DOMContentLoaded', function () {
