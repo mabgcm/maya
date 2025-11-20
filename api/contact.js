@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
-const formidable = require('formidable');
+import nodemailer from 'nodemailer';
+import formidable from 'formidable';
 
 module.exports.config = {
 	api: {
@@ -48,13 +48,13 @@ function pickFileArray(filesObj) {
 
 function esc(value) {
 	return String(value || '').replace(/[&<>"']/g, (ch) =>
-		({
-			'&': '&amp;',
-			'<': '&lt;',
-			'>': '&gt;',
-			'"': '&quot;',
-			"'": '&#039;',
-		}[ch])
+	({
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#039;',
+	}[ch])
 	);
 }
 
