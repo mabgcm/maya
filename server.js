@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const { parseMultipartForm } = require('./lib/formParser');
 const { HttpError, sendContactEmail } = require('./lib/contactMailer');
 
 const app = express();
@@ -10,7 +11,8 @@ app.use(express.json());
 
 app.post('/api/contact', async (req, res) => {
 	try {
-		await sendContactEmail(req.body);
+		const { fields, files } = await parseMultipartForm(req);
+		await sendContactEmail({ fields, files });
 		res.json({ ok: true });
 	} catch (error) {
 		console.error(error);

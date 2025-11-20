@@ -290,7 +290,7 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 			</div>
 				<!-- Section Header /-  -->
 				
-				<form id="contact-form" method="post" novalidate>
+				<form id="contact-form" action="/api/contact" method="post" enctype="multipart/form-data" novalidate>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<label for="name" class="sr-only">Your Name</label>
 						<input id="name" name="name" type="text" class="form-control" placeholder="Your Name *" required>
@@ -320,6 +320,7 @@ Every loaf reflects a mastery that stays rooted in tradition while looking towar
 					</div>
 					<div class="col-md-12 col-sm-12 col-xs-12 order-links">
 						<button type="submit" class="order-now">Submit Your Message</button>
+						<p id="contact-status" class="contact-status" role="status" aria-live="polite" style="margin-top:10px;"></p>
 					</div>
 					<!-- Contact Details / Hours -->
       <div class="working-hours">

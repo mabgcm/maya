@@ -1,12 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('contact-form');
+	const statusEl = document.getElementById('contact-status');
+
 	if (!form) {
 		return;
 	}
 
 	const endpoint =
 		(window.ENV && window.ENV.CONTACT_ENDPOINT) ||
-		'http://localhost:4000/api/contact';
+		form.getAttribute('action') ||
+		'/api/contact';
+
+	function setStatus(message, isError = false) {
+		if (!statusEl) {
+			if (message) {
+				alert(message);
+			}
+			return;
+		}
+
+		statusEl.textContent = message || '';
+		statusEl.style.color = isError ? '#c0392b' : '#1e8449';
+	}
 
 	form.addEventListener('submit', async (event) => {
 		event.preventDefault();
@@ -16,26 +31,32 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		const formData = new FormData(form);
-		const payload = Object.fromEntries(formData.entries());
+
+		if ((formData.get('company') || '').trim() !== '') {
+			form.reset();
+			setStatus('Thanks! Your message has been sent.');
+			return;
+		}
+
+		setStatus('Sending...');
 
 		try {
 			const response = await fetch(endpoint, {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(payload),
+				body: formData,
 			});
 
-			if (!response.ok) {
-				throw new Error('Request failed');
+			const data = await response.json().catch(() => ({}));
+
+			if (!response.ok || data.ok !== true) {
+				throw new Error(data.error || 'Unable to send your message.');
 			}
 
-			alert('Thanks! Your message has been sent.');
+			setStatus('Thanks! Your message has been sent.');
 			form.reset();
 		} catch (error) {
 			console.error(error);
-			alert('Sorry, something went wrong. Please try again later.');
+			setStatus('Sorry, something went wrong. Please try again later.', true);
 		}
 	});
 });
