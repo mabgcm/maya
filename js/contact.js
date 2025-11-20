@@ -1,26 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('contact-form');
-	const statusEl = document.getElementById('contact-status');
+	const statusBox = document.getElementById('contact-status');
 
 	if (!form) {
 		return;
 	}
 
-	const endpoint =
-		(window.ENV && window.ENV.CONTACT_ENDPOINT) ||
-		form.getAttribute('action') ||
-		'/api/contact';
-
-	function setStatus(message, isError = false) {
-		if (!statusEl) {
+	function setStatus(message, type = 'info') {
+		if (!statusBox) {
 			if (message) {
 				alert(message);
 			}
 			return;
 		}
 
-		statusEl.textContent = message || '';
-		statusEl.style.color = isError ? '#c0392b' : '#1e8449';
+		statusBox.textContent = message || '';
+		statusBox.style.color = type === 'error' ? '#c0392b' : '#1e8449';
 	}
 
 	form.addEventListener('submit', async (event) => {
@@ -30,33 +25,32 @@ document.addEventListener('DOMContentLoaded', () => {
 			return;
 		}
 
-		const formData = new FormData(form);
+		const data = new FormData(form);
 
-		if ((formData.get('company') || '').trim() !== '') {
-			form.reset();
+		if ((data.get('company') || '').trim() !== '') {
 			setStatus('Thanks! Your message has been sent.');
+			form.reset();
 			return;
 		}
 
 		setStatus('Sending...');
 
 		try {
-			const response = await fetch(endpoint, {
+			const response = await fetch(form.getAttribute('action') || '/api/contact', {
 				method: 'POST',
-				body: formData,
+				body: data,
 			});
+			const payload = await response.json().catch(() => ({}));
 
-			const data = await response.json().catch(() => ({}));
-
-			if (!response.ok || data.ok !== true) {
-				throw new Error(data.error || 'Unable to send your message.');
+			if (!response.ok || !payload.ok) {
+				throw new Error(payload.error || 'Unable to send email.');
 			}
 
 			setStatus('Thanks! Your message has been sent.');
 			form.reset();
 		} catch (error) {
 			console.error(error);
-			setStatus('Sorry, something went wrong. Please try again later.', true);
+			setStatus('Sorry, something went wrong. Please try again later.', 'error');
 		}
 	});
 });
